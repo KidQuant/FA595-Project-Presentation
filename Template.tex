@@ -1,0 +1,517 @@
+\documentclass[xcolor={table}, aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\defbeamertemplate{footline}{my frame number}
+{
+    \hfill
+    \usebeamercolor[fg]{page number in head/foot}
+    \usebeamerfont{page number in head/foot}
+    \raisebox{0.25cm}[0pt][0pt]{
+        \insertframenumber\kern1em}
+}
+\mode<presentation>
+{
+    \usetheme{default}
+    \usecolortheme{seagull}
+    \usefonttheme{default}
+    \setbeamertemplate{caption}[numbered]
+    \setbeamertemplate{footline}[my frame number]
+    \setbeamertemplate{navigation symbols}{}
+    \addtobeamertemplate{frametitle}{\vskip+0.5ex}{}
+}
+% \AtBeginSection[] {
+%     \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection]
+%     \end{frame}
+% }
+% \AtBeginSubsection[] {
+%     \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection, currentsubsection]
+%     \end{frame}
+% }
+
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage[permil]{overpic}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage{psfrag}
+%\usepackage{natbib}
+\usepackage[autocite=superscript,backend=bibtex, style=authoryear]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{color}
+% \usepackage{cleveref}
+\usepackage[font=scriptsize]{caption}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\usepackage{siunitx}
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+
+
+%\usepackage{fontspec}
+
+\graphicspath{{stevens/}{figures/}}
+
+\makeatletter
+\def\beamer@framenotesbegin{% at beginning of slide
+     \usebeamercolor[fg]{normal text}
+      \gdef\beamer@noteitems{}%
+      \gdef\beamer@notes{}%
+}
+\makeatother
+
+\usebackgroundtemplate
+{
+    \begin{tabular}{@{}c@{}}
+        \includegraphics[width=\paperwidth]{presentation_top.png} \\
+        \rule{0pt}{0.74\paperheight} \\
+        \includegraphics[width=\paperwidth]{presentation_bottom.png}
+    \end{tabular}
+}
+
+\vspace{1cm}
+
+\title[Lit Review]
+      {Crypto Market Analysis, ChainSure+, FOMC Sentiment Analysis and Rate Predictions}
+
+\author[Author] % (optional, use only with lots of authors)
+{Andre Sealy}
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Stevens Institute] % (optional, but mostly needed)
+{
+  Financial Engineering 800\\
+  Stevens Institute of Technology\\
+%System description details at \cite{w2020shift}}
+}
+\date{\\
+{\footnotesize December 9th, 2025}}
+
+\subject{Talk at Venue}
+
+
+%\author[Ionut Florescu]{\texorpdfstring{\footnotesize Ionu\c{t} Florescu \\
+%       \vspace*{0.5\baselineskip}
+%     {\footnotesize Committee: \\
+%      Dr. George Calhoun, Dr. Dragoș Bozdog, \\
+%      Dr. Emmanuel Hatzakis, Dr. Rupak Chatterjee}}{Ionu\c{t} Florescu}}
+% \institute{\footnotesize Financial Engineering}
+% \date{{\footnotesize September 12, 2020}}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{}
+\usebackgroundtemplate
+{
+	\begin{tabular}{@{}c@{}}
+		\begin{overpic}[width=\paperwidth]{title_top.png}
+			\put(25,-35){\includegraphics[height=0.15\paperheight]{title_logo.png}}
+		\end{overpic} \\
+		\rule{0pt}{0.74\paperheight}                     \\
+		\includegraphics[width=\paperwidth]{title_bottom.png}
+	\end{tabular}
+}
+
+\begin{frame}
+
+	\titlepage
+
+\end{frame}
+}
+
+\begin{frame}{Overview}
+	\begin{enumerate}
+		\item  Crypto Currency Ecosystem and Interlinkages
+		      \newline
+		\item ChainSure+
+		      \newline
+		\item FOMC Sentiment Analysis and Rate Predictions
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Crypto Currency Ecosystem and Interlinkages}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Overview of the Crypto Market}
+\begin{table}[ht]
+	\centering
+	\caption{Market Comparisons of the Top Ten Crytocurrencies on December 30th, 2022}
+	\begin{tabular}[t]{lcccc}
+		\toprule
+		Company Name & Market Cap & Last Price & 1D Pct Chg& 1M Pct Chg \\
+		\midrule
+    Bitcoin (BTC-USD)  & \$320\,\text{B} & \$16{,}600 & -0.3\% & -3\%  \\
+    Ethereum (ETH-USD) & \$145\,\text{B} & \$1{,}200  & +0.5\% & -7\%  \\
+    Tether (USDT-USD)   & \$66\,\text{B}  & \$1.00     &  0.0\% &  0\%  \\
+    USD Coin (USDC-USD) & \$44\,\text{B}  & \$1.00     &  0.0\% &  0\%  \\
+    BNB (BNB-USD)      & \$39\,\text{B}  & \$245      & -0.5\% & -11\% \\
+    XRP (XRP-USD)      & \$17\,\text{B}  & \$0.34     & -1.0\% & -15\% \\
+    Cardano (ADA-USD)  & \$9\,\text{B}   & \$0.24     & -0.5\% & -18\% \\
+    Dogecoin (DOGE-USD) & \$10\,\text{B}  & \$0.07     & -1.0\% & -18\% \\
+    TRON (TRX-USD)     & \$5\,\text{B}   & \$0.055    & -1.0\% & -12\% \\
+		\bottomrule
+	\end{tabular}\label{tab:market_table}
+\end{table}
+\end{frame}
+
+\begin{frame}{Overview of the Crypto Market}
+We find the ETH, ADA, XRP, BNB, and DOGE are the most correlated with BTC, so we use these crypto-assets.
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.8\linewidth]{pics/correlation_all_crypto.png}
+\caption{Correlation Matrix of the asset prices of Cryptocurrencies}
+\label{fig:correlation_all_crypto}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Overview of the Crypto Market}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pics/crypto_assets.png}
+        \caption{One-year trend of crypto-assets}
+        \label{fig:asset_trend}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pics/crypto_assets_returns.png}
+        \caption{Cumulative returns of crypto-assets}
+        \label{fig:asset_return}
+    \end{subfigure}
+    \caption{Trends of crypto asset prices and cumulative returns}
+    \label{fig:trend_and_returns}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Overview of the Crypo Market}
+  \begin{figure}
+     \centering
+    \includegraphics[width=0.45\linewidth]{pics/correlation_crypto.png}
+  \caption{Correlation Matrix of the daily returns of the crypto market}
+  \label{fig:correlation_crypto}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Overview of the Crypto Market}
+Overall Trend 
+\begin{itemize}
+  \item  We find the most crypto coins are highly correlated with each other, with the exception of stable coins and niche/utility coins.
+  \newline
+  \item Similar to equities, most crypto coins are highly correlated with one another. Trends in the largest coins tend to lead to trends in all coins.
+  \newline
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Descriptive Statistics of the Crypto Market}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Descriptive Statistics of the Crypto Market}
+  We use the following descriptive statistics to analyze the crypto market.
+  
+  \begin{align}
+    &\text{Sample Mean}:\;\hat{\mu}_x=\frac{1}{T}\sum_{t=1}^{T}x_t,\\
+    &\text{Sample Standard Deviation}:\;\hat{\sigma}_x=\sqrt{\frac{1}{T-1}\sum_{t=1}^{T}\left(x_t-\hat{\mu}_2\right)^2},\\
+    &\text{Sample Skewness}:\;\hat{S}(x)=\frac{1}{\left(T-1\right)\hat{\sigma}^3_x}\sum_{t=1}^{T}\left(x_t-\hat{\mu}_x\right)^3,\\
+    &\text{Sample Kurtosis}:\;\hat{K}(x)=\frac{1}{\left(T-1\right)\hat{\sigma}^4_x}\sum_{t=1}^{T}\left(x_t-\hat{\sigma}_x\right)^4
+  \end{align}
+\end{frame}
+
+\begin{frame}{Descriptive Statistics of the Crypto Market}
+\begin{table}[ht]
+    \captionsetup{skip=2pt} % space between caption and table (try 0–4pt)
+    \centering
+    \caption{Descriptive statistics of cryptocurrencies (\textit{Daily Simple Returns \%})}
+    \label{tab:descriptive}
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{lcccccc}
+            \toprule
+            Security & Mean ($\hat{\mu}_x$) & Std Dev ($\hat{\sigma}_x$) &
+            Skewness ($\hat{S}(x)$) & Kurtosis ($\hat{K}(x)$) & Min & Max \\
+            \midrule
+            BTC  & -0.02 & 3.44 & -0.2660 &  5.96 & -15.97 & 14.54 \\
+            ETH  & -0.02 & 4.67 & -0.0491 &  7.95 & -17.45 & 18.11 \\
+            ADA  & -0.03 & 4.92 & 0.1279  &  9.17 & -18.46 & 18.48 \\
+            XRP  & -0.01 & 4.60 & 0.3946  &  9.53 & -19.51 & 22.24 \\
+            BNB  &  0.00 & 3.87 & -0.5519 &  8.66 & -18.56 & 13.95 \\
+            DOGE &  0.00 & 5.77 & 1.3236  & 12.39 & -22.02 & 44.94 \\
+            \bottomrule
+        \end{tabular}%
+    }
+\end{table}
+\end{frame}
+
+\begin{frame}{Descriptive Statistics of the Crypto Market}
+Overall Descriptive Analysis 
+\begin{itemize}
+  \item Cryptocurrencies all show high levels of standard deviation, which is inline with what we expect from the overall risk of the asset. 
+  \newline
+  \item Cryptocurrencies all exhitbit a high level of kurtosis, indicating that high levels of single day gains/losses happen at greater frequencies. 
+  \newline
+  \item We find that BTC has the smallest amount of risk and DOGE has the greatest amount of risk.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Crypto in Comparison to the Overall Market}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Crypto and the Overall Market}
+\begin{figure}
+    \centering
+        \includegraphics[width=0.80\linewidth]{pics/correlation_matrix_sp.png}
+        \caption{Correlation of the Crypto Market and the S\&P 500}
+        \label{fig:}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Crypto and the Overall Market}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pics/crypto_assets_sp.png}
+        \caption{One-year trend of crypto-assets}
+        \label{fig:asset_trend_sp}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pics/crypto_assets_returns_sp.png}
+        \caption{Cumulative returns of crypto-assets}
+        \label{fig:asset_return_sp}
+    \end{subfigure}
+    \caption{Trends of crypto asset prices and cumulative returns}
+    \label{fig:trend_and_returns_sp}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Crypto and the Overall Market}
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=.5\linewidth]{pics/correlation_crypto_sp.png}
+  \caption{Correlation Matrix for selected cryptocurrencies with S\&P 500 }
+\label{fig:correlation_crypto_new_sp}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Crypto and the Overall Market}
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.70\linewidth]{pics/daily_returns_sp.png}
+  \caption{Daily Returns of cryptocurrencies and the S\&P 500}
+\label{fig:daily_returns_sp}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Descriptive Statistics of the Crypto Market}
+Crypto in relation with the overall market 
+\begin{itemize}
+  \item As expected, the broader market is more stable than the overall crypto market; however, periods of volatility tend to differ between the two asset classes.
+  \newline
+  \item Cryptocurrencies like DOGE and XRP tend to be more volatile than other coins
+  \newline
+  \item All cryptocurrencies exhibit the same volatility clustering around the periods, especially around November 11th, 2022, which is the height of the FTX Collapse.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{FTX Collapse}}
+	\vfill
+\end{frame}
+
+
+\begin{frame}{The FTX Collapse}
+{\normalsize
+
+% increase the space between columns (local to this group)
+\setlength{\columnsep}{20pt}  % try 10–15pt
+
+\begin{columns}[t,totalwidth=\textwidth]
+  \column{0.73\textwidth} % was 0.73
+    \begin{itemize}\itemsep8pt
+      \item FTX and affiliates filed for bankruptcy, confirming the exchange had a multi-billion dollar gap between assets and liabilities, and that many customers' funds were missing or illiquid.
+      \item The announcement intensified volatility and downside pressure on major coins like BTC and ETH.
+      \item Financial commentators widely described the event as a "Lehman moment" for the crypto market, despite the spillover into other asset classes remaining limited.
+    \end{itemize}
+
+  \column{0.4\textwidth} % was 0.4
+    \vspace{-0.5cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{pics/press_release.png}
+      \caption{\footnotesize FTX announcing Chapter 11 bankruptcy}
+    \end{figure}
+\end{columns}
+
+}
+\end{frame}
+
+\begin{frame}{ChainSure+}
+  Withdrawl freeze, a deal falls through: Nov 8 to 100
+{\footnotesize
+
+% increase the space between columns (local to this group)
+\setlength{\columnsep}{20pt}  % try 10–15pt
+
+\begin{columns}[t,totalwidth=0.9\textwidth]
+  \column{0.60\textwidth} % was 0.73
+    \begin{itemize}\itemsep2pt
+  \item CEO Sam Bankman-Fried and Binance CEO Chengpeng Zhao stuck a deal for Binance to aquire the non-U.S. branch of FTX, including a promise to bail out FTX to prevent larger market crashes.
+  \item On Nov. 8, FTX halted all non-fiat customer withdrawls. On Twitter, Bankman-Fried posted a string of apologies explaining FTX's liquidity issues and promising more transparency.
+  \item On Nov. 9, walked back his decision to bailout FTX, citing mishandling customer funds, agency investigations and other issues that contributed to his decision.
+  \item Bankman-Fried appeared to reference Zhao's influence on FTX's fall in a cryptic post on Twitter where he said, "Well played; you won."
+    \end{itemize}
+
+  \column{0.5\textwidth} % was 0.4
+    \vspace{0.5cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.9\linewidth]{pics/tweet.png}
+      \caption{\footnotesize SBF's response to CZ's news}
+    \end{figure}
+\end{columns}
+}
+\end{frame}
+
+\begin{frame}{The FTX Collapse}
+  Bankruptcy and hack: Nov. 11
+  \vspace{0.3cm}
+\begin{itemize}
+  \item On Nov. 11, FTX announced that it had filed for voluntary Chapter 11 bankruptcy proceedings for FTX, FTX.US and Alameda.
+  \newline
+  \item FTX.US also temporarily froze withdrawls on Nov. 11, following the bankruptcy announcement, despite reassurances that FTX.US was not affected by FTX's liquidity troubles
+  \newline 
+  \item FTX and FTX.US wallets were emptied on the evening of Nov. 11 in an apparent hack.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{FTX Collapse}}
+	\vfill
+\end{frame}
+
+\begin{frame}{ChainSure+: Decentralized Travel Insurance}
+  \begin{itemize}
+    \item Builds on Etherisc's Flight Delay Insurance concept.
+    \item Moves from single-flight, simple payouts to a full travel-insurance product.
+    \item Decentralized protocol on Ethereum using smart contracts and real-time oracles.
+    \item Focus: fast, transparent, and predictable protection against flight disruptions.
+    \item Designed for trips with multiple connections, international travel, and weather uncertainty.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Target Consumers \& Existing Competitors}
+  \begin{itemize}
+    \item Travelers in regions where traditional insurers are slow, inconsistent, or opaque.
+    \item Users who value automated payouts without manual claim review.
+    \item DeFi participants acting as liquidity providers, earning returns from premiums.
+    \item Closest decentralized competitor: Etherisc Flight Delay Insurance (single-flight focus).
+    \item Centralized competitors: traditional insurers (e.g., Allianz, AIG) and airline compensation schemes.
+    \item ChainSure+ aims to be a more complete, consistent, and user-friendly alternative.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Benefits to Travelers}
+  \begin{itemize}
+    \item Single policy can cover an entire multi-leg trip (no need for multiple policies).
+    \item Includes coverage for weather-related cancellations via real-time weather data.
+    \item Tiered payout structure: compensation scales with length / severity of delay.
+    \item Dynamic, risk-based premiums using historical airline and airport reliability data.
+    \item Fully automated payouts triggered by oracle data; no forms, documents, or manual approval.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ChainSure+ vs.\ Centralized Insurance}
+  \begin{itemize}
+    \item Smart contracts automate payouts and remove manual claims processing.
+    \item On-chain policy rules and payout conditions are transparent and immutable.
+    \item Oracle-based data feeds reduce fraud and opportunistic claims.
+    \item Lower administrative overhead $\Rightarrow$ potential for more affordable premiums.
+    \item Policies implemented as NFTs:
+      \begin{itemize}
+        \item Transferable if travel plans change.
+        \item Resale or reassignment possible in secondary markets.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Smart-Contract Design on Ethereum}
+  \begin{itemize}
+    \item \textbf{Policy Contract (NFT):}
+      \begin{itemize}
+        \item Stores flight details, coverage terms, and ownership.
+        \item Enables transfer of policies between users.
+      \end{itemize}
+    \item \textbf{Risk Pool Contract:} Holds liquidity, receives premiums, pays claims.
+    \item \textbf{Payout Logic Contract:} Maps delay / cancellation data to tiered payouts.
+    \item \textbf{Pricing Contract:} Computes dynamic premiums from historical reliability data.
+    \item \textbf{Oracles (e.g., Chainlink):}
+      \begin{itemize}
+        \item Provide flight status, weather, and performance metrics.
+        \item Trigger automatic payouts when conditions are met.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Economic Viability \& Deployment Choices}
+  \begin{itemize}
+    \item Economically viable on Ethereum, especially \textbf{Layer 2} networks (lower gas fees).
+    \item Oracle calls + payouts remain cost-effective on rollups; supports frequent, small policies.
+    \item Flight-disruption risks follow relatively stable statistical patterns:
+      \begin{itemize}
+        \item Supports predictable pool management and premium setting.
+      \end{itemize}
+    \item Liquidity providers earn yield from premiums in exchange for bearing risk.
+    \item Extensible to other EVM-compatible chains (Polygon, Arbitrum, Optimism, Avalanche).
+    \item Less suitable / more complex on Solana (new language, oracle support) and not viable on Bitcoin.
+    \item Conclusion: Ethereum L2s are the most practical, cost-efficient home for ChainSure+.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Analyzing the Federal Open Market Committe}}
+	\vfill
+\end{frame}
+
+\end{document}
