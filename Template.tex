@@ -50,7 +50,7 @@
 %\usepackage{natbib}
 \usepackage[autocite=superscript,backend=bibtex, style=authoryear]{biblatex}
 \addbibresource{refs.bib}
-
+\usepackage{array}
 \usepackage{multirow}
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -59,7 +59,7 @@
 \usepackage[font=scriptsize]{caption}
 \usepackage{booktabs}
 \usepackage{amsmath}
-
+\usepackage{tabularx}
 \usepackage{siunitx}
 
 \sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
@@ -93,7 +93,7 @@
       {Crypto Market Analysis, ChainSure+, FOMC Sentiment Analysis and Rate Predictions}
 
 \author[Author] % (optional, use only with lots of authors)
-{Andre Sealy}
+{Group 2}
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
 
@@ -421,10 +421,23 @@ Crypto in relation with the overall market
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Conclusion}
+  Takeways from our Crypto Analysis
+  \vspace{0.3cm}
+\begin{itemize}
+  \item e have learned that many crypto-assets are highly interlinked, as coins tend to be highly correlated and volatile, while stablecoins are significantly so
+  \newline
+  \item We have also learned about the
+distribution of these crypto-assets and discovered that, in many ways, they behave like equities
+  \newline 
+  \item Future work could involve time-series analysis, focusing on modelling return dynamics and volatility
+\end{itemize}
+\end{frame}
+
 \begin{frame}
 	\centering
 	\vfill
-	{\Large \textbf{FTX Collapse}}
+	{\Large \textbf{ChainSure+}}
 	\vfill
 \end{frame}
 
@@ -513,5 +526,352 @@ Crypto in relation with the overall market
 	{\Large \textbf{Analyzing the Federal Open Market Committe}}
 	\vfill
 \end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Background of the FOMC}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Background of the FOMC}
+{\normalsize
+
+% increase the space between columns (local to this group)
+\setlength{\columnsep}{20pt}  % try 10–15pt
+
+\begin{columns}[t,totalwidth=\textwidth]
+  \column{0.73\textwidth} % was 0.73
+    \begin{itemize}\itemsep8pt
+      \item The Federal Reserve (or the Fed) was established in 1913 in response to the bank runs and financial crisis prevalent at the time.
+      \item The Fed has many pivotal roles in regulating the economy, however, it's main focus is promoting maximum employment and price stability (dual mandate)
+      \item Despite all the changes and economic gyrations throughout history, the primary purpose of the Fed is to provide stability to the American banking system
+      \item The Banking Act of 1933 formed an official Federal Open Market Committee (FOMC).
+    \end{itemize}
+
+  \column{0.4\textwidth} % was 0.4
+    \vspace{0.3cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{pics/the_fed.jpg}
+      \caption{\footnotesize The Eccles Building}
+    \end{figure}
+\end{columns}
+
+}
+\end{frame}
+
+\begin{frame}{Background of the FOMC}
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.85\linewidth]{pics/fomc_structure.png}
+  \caption{The Structure of the FOMC}
+\label{fig:daily_returns_sp}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Analyzing FOMC Documents}}
+	\vfill
+\end{frame}
+
+
+\begin{frame}{Analyzing FOMC Documents}
+  Motivations behind analyzing FOMC Statements
+  \vspace{0.4cm}
+\begin{itemize}
+  \item  Analyzing FOMC statements allows us to understand the path the fed is likely to take in monetary policy.
+  \newline
+  \item These factors, in turn, affect financial markets, including stocks, bonds, and currency values, including crypto.
+  \newline
+  \item Natural Language Processing tools help detect subtle variations and trends in statements over time that are not obvious in causal reading.
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Analzing FOMC Documents}
+\footnotesize 
+
+\begin{table}[htbp]
+\centering
+\caption{Overview of the FOMC documents used for Sentiment Analysis}
+{%
+\renewcommand{\arraystretch}{1.15}% small extra space between rows
+\begin{tabular}{l c >{\raggedright\arraybackslash}p{8cm}}
+\hline
+\textbf{Category} & \textbf{Count} & \textbf{Notes} \\
+\hline
+FOMC Statements         & 233   & The main tool of communicating their monetary decisions. Releases immediately after the meeting. \\
+Minutes                 & 262   & A more detailed summary of the discussions and decisions at the FOMC meeting. Releases 3 weeks after scheduled meeting. \\
+Meeting Transcripts     & 852   & The complete transcripts of the meeting, which includes the deliberation process of the FOMC members. Releases 5 years after schedule meeting. \\
+Press Conferences       & 77    & Live events held by the Fed Chair shortly after the scheduled meeting. These meetings are sporadic/optional. \\
+Speeches                & 1,946 & Public speaking appearances for FOMC members. \\
+Chairperson Testimonies & 474   & Bi-annual presentation given before Congress.\\
+\hline
+\end{tabular}
+}% end local group
+\end{table}
+\end{frame}
+
+\begin{frame}{Analzing FOMC Documents}
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.9\linewidth]{pics/tonescore.png}
+  \caption{Historical tone of FOMC statements}
+\label{fig:daily_returns_sp}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Analzing FOMC Documents}
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.9\linewidth]{pics/sentiment_fedchair.png}
+  \caption{Historical tone of FOMC statements in relation to monetary policy}
+\label{fig:daily_returns_sp}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Rate Predictions Using RAG}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Rate Predictions Using RAG}
+  \vspace{0.4cm}
+\begin{itemize}
+  \item Retrieval Augmented Generation (RAG) combines the strengths of LLMs with advanced language modeling.
+  \newline
+  \item Instead of relying solely on their training, they query an external database, updated daily with the latest articles, to find relevant information.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rate Predictions Using RAG}
+  \begin{figure}
+     \centering
+    \includegraphics[width=0.7\linewidth]{pics/rag.png}
+  \caption{Flow chart of the RAG system}
+  \label{fig:}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Rate Predictions Using RAG}
+ Queries used for sentiment analysis 
+  \vspace{0.4cm}
+\begin{itemize}
+  \item  \textbf{Analysis Step:} "Provide a detailed summary of the following FOMC Documents from the date [date of the document]."
+  \newline
+  \item \textbf{Sentiment Analysis:} "What is the overall sentiment of the following FOMC Document?" Reply with neutral, positive, or negative only. If you don't know, reply neutral.
+  \newline
+  \item \textbf{Rate Decision:} "Based on how you gauged the sentiment of the FOMC document, would you increase, decrease, or keep the federal funds rate the same? Return 0 for on change, 1 for an increase, and -1 for a decrease only."
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rate Predictions Using RAG}
+  \begin{figure}
+     \centering
+    \includegraphics[width=0.75\linewidth]{pics/llm_analysis.png}
+  \caption{RAG-generated rate decisiions compared with FOMC-based rate decision}
+  \label{fig:}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Rate Predictions Using RAG}
+{\normalsize
+
+% increase the space between columns (local to this group)
+\setlength{\columnsep}{20pt}  % try 10–15pt
+
+\begin{columns}[t,totalwidth=\textwidth]
+  \column{0.70\textwidth} % was 0.73
+    \begin{itemize}\itemsep8pt
+      \item The RAG approach has accurately made 380 neutral rate predictions, 3 rate cut predictions and 89 rate hike predictions.
+      \item Hold Recall: 72.5\%
+      \item Hike Recall: 34.1\%
+      \item Cut Recall: 1.6\%
+      \item Overall accurate: 48.6\%
+    \end{itemize}
+
+  \column{0.4\textwidth} % was 0.4
+    \vspace{-0.5cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\linewidth]{pics/confusion_matrix_llm.png}
+      \caption{\footnotesize Correlation Matrix of RAG Predictions}
+    \end{figure}
+\end{columns}
+
+}
+\end{frame}
+
+\begin{frame}{Rate Predictions Using RAG}
+Overall takeways from RAG Sentiment
+\begin{itemize}
+  \item RAG is very good learning the majority classs, but still struggles with other predictions.
+  \newline
+  \item Without any other form of information, it's difficult for LLMs to make interest rate decisions in context.
+  \newline
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{FOMC Rate Prediction Models}}
+	\vfill
+\end{frame}
+
+\begin{frame}{FOMC Rate Prediction Models}
+  Motivations behind rate prediction models
+  \vspace{0.2cm}
+\begin{itemize}
+  \item The FOMC is tasked with many responsibilities in stabilizing our economy, while it's only real power is control over short-term interest rates.
+  \newline
+  \item Without the proper economic data put into context, predicting rate changes on text analysis alone can be difficult.
+  \newline
+  \item Our rate prediction models uses a combination of unstructured and structured data.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{FOMC Rate Prediction Models}
+{
+\captionsetup[subfigure]{position=top,skip=2pt} % only for this figure
+
+\begin{figure}[htbp]
+\centering
+
+% ---------- Row 1 ----------
+\begin{subfigure}{0.19\textwidth}
+    \caption{Fed Funds}
+    \includegraphics[width=\linewidth]{pics/1_fed_funds.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Yields}
+    \includegraphics[width=\linewidth]{pics/2_yields.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Real GDP}
+    \includegraphics[width=\linewidth]{pics/3_GDP.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Potential GDP}
+    \includegraphics[width=\linewidth]{pics/4_GDP_POT.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Core PCE}
+    \includegraphics[width=\linewidth]{pics/5_CORE_PCE.png}
+\end{subfigure}
+
+\par\vspace{-0.3\baselineskip} % vertical gap between rows
+
+% ---------- Row 2 ----------
+\begin{subfigure}{0.19\textwidth}
+    \caption{CPI}
+    \includegraphics[width=\linewidth]{pics/6_CPI.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Unemployment}
+    \includegraphics[width=\linewidth]{pics/7_unemployment.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Employment}
+    \includegraphics[width=\linewidth]{pics/8_employment.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{Real Retail Sales}
+    \includegraphics[width=\linewidth]{pics/9_real_retail_sales.png}
+\end{subfigure}\hspace{0.01\textwidth}
+\begin{subfigure}{0.19\textwidth}
+    \caption{New Home Sales}
+    \includegraphics[width=\linewidth]{pics/10_new_home_sales.png}
+\end{subfigure}
+
+\caption{Macroeconomic indicators for prediction}
+\label{fig:macro-subplots}
+\end{figure}
+}
+\end{frame}
+
+\begin{frame}{FOMC Rate Prediction Models}
+Rate prediction modeling pipeline
+
+\begin{enumerate}
+  \item Process the text for fitting appropriate models (Splitting, Tokenization, Lemmatization, Loughran-McDonald Financial Sentiment)
+  \item Align the publication dates of economic data releases with the publication of FOMC statements and documents.
+  \item Utilize monetary policy for a more realistic and rigorous framework, such as the Taylor rule:
+  \begin{equation}
+    \text{Taylor Rate}=r+\pi+\frac{1}{2}(\pi-\pi^*)+\frac{1}{2}(Y-Y_p)
+  \end{equation}
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{FOMC Rate Prediction Models}
+\begin{table}[h]
+    \centering
+    \scriptsize
+
+    % 3rd & 4th columns: fixed width, text wraps inside them
+    \begin{tabularx}{\textwidth}{ll
+        >{\raggedright\arraybackslash}p{4cm}
+        >{\raggedright\arraybackslash}p{4cm}}
+        \toprule
+        Model Name  & Model Type                              & Strengths & Weaknesses \\ 
+        \midrule
+        Cosine Similarity
+        & \shortstack[l]{Traditional ML\\(Random Forest)}
+        & \shortstack[l]{Interpretable features\\Computationally efficient}
+        & \shortstack[l]{Loss in individual word information\\Losses word order and context} \\ 
+        \midrule
+        TF-IDF
+        & \shortstack[l]{Traditional ML\\(Random Forest)}
+        & \shortstack[l]{Simple \& interpretable\\Fast to train}
+        & \shortstack[l]{\\Hard to generalize}\\ 
+        \midrule
+        LSTM
+        & \shortstack[l]{Deep Learning\\(RNN)}
+        & \shortstack[l]{Foundational for advanced models\\Fast to train}
+        & \shortstack[l]{Severe overfitting\\Embeddings can't learn from small data}\\ 
+        \midrule
+        GloVe+LSTM
+        & \shortstack[l]{Deep Learning\\(RNN)}
+        & \shortstack[l]{Pre-trained embeddings \\reduces overfitting}
+        & \shortstack[l]{Fails to adapt to domain knowledge\\(Finance)}\\ 
+        \bottomrule
+    \end{tabularx}
+
+    \caption{Rate Prediction Models}
+    \label{tab-seg}
+\end{table}
+\end{frame}
+%%% -------------------------------------------------------
+
+
+\begin{frame}{Performance}
+  \small
+\begin{table}[H]
+    \centering
+    \caption{Comparison of FOMC Rate Prediction Models}
+    \label{tab:comparison_previous_methods}
+    \begin{tabular}{lccccc}
+        \toprule
+        \textbf{Method} & \textbf{Accuracy} & \textbf{Hold Recall} & \textbf{Lower Recall} & \textbf{Raise Recall} & \textbf{F1 Score} \\
+        \midrule
+        Cosine Sim (A)      & 59.6\% & 75.7\% & 25\%   & 33.3\% & 0.46 \\
+        TF-IDF (B)          & 63.2\% & 100\%  & 0\%    & 0\%    & 0.27 \\
+        LSTM (C)            & 46.4\% & 74.3\% & 0\%    & 0\%    & 0.21 \\
+        GloVe + LSTM (D)    & 66.6\% & 93.5\% & 12.4\% & 0\%    & 0.32 \\
+        LLM Analyzer (F)    & 48.6\% & 73.3\%   & 1.6\%    & 34.1\%   & 0.32 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{frame}
+
 
 \end{document}
