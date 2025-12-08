@@ -219,7 +219,7 @@ We find the ETH, ADA, XRP, BNB, and DOGE are the most correlated with BTC, so we
 \end{frame}
 
 \begin{frame}{Overview of the Crypto Market}
-Overall Trend 
+Overall Trend
 \begin{itemize}
   \item  We find the most crypto coins are highly correlated with each other, with the exception of stable coins and niche/utility coins.
   \newline
@@ -237,7 +237,7 @@ Overall Trend
 
 \begin{frame}{Descriptive Statistics of the Crypto Market}
   We use the following descriptive statistics to analyze the crypto market.
-  
+
   \begin{align}
     &\text{Sample Mean}:\;\hat{\mu}_x=\frac{1}{T}\sum_{t=1}^{T}x_t,\\
     &\text{Sample Standard Deviation}:\;\hat{\sigma}_x=\sqrt{\frac{1}{T-1}\sum_{t=1}^{T}\left(x_t-\hat{\mu}_2\right)^2},\\
@@ -271,11 +271,11 @@ Overall Trend
 \end{frame}
 
 \begin{frame}{Descriptive Statistics of the Crypto Market}
-Overall Descriptive Analysis 
+Overall Descriptive Analysis
 \begin{itemize}
-  \item Cryptocurrencies all show high levels of standard deviation, which is inline with what we expect from the overall risk of the asset. 
+  \item Cryptocurrencies all show high levels of standard deviation, which is inline with what we expect from the overall risk of the asset.
   \newline
-  \item Cryptocurrencies all exhitbit a high level of kurtosis, indicating that high levels of single day gains/losses happen at greater frequencies. 
+  \item Cryptocurrencies all exhitbit a high level of kurtosis, indicating that high levels of single day gains/losses happen at greater frequencies.
   \newline
   \item We find that BTC has the smallest amount of risk and DOGE has the greatest amount of risk.
 \end{itemize}
@@ -338,7 +338,7 @@ Overall Descriptive Analysis
 
 
 \begin{frame}{Descriptive Statistics of the Crypto Market}
-Crypto in relation with the overall market 
+Crypto in relation with the overall market
 \begin{itemize}
   \item As expected, the broader market is more stable than the overall crypto market; however, periods of volatility tend to differ between the two asset classes.
   \newline
@@ -416,7 +416,7 @@ Crypto in relation with the overall market
   \item On Nov. 11, FTX announced that it had filed for voluntary Chapter 11 bankruptcy proceedings for FTX, FTX.US and Alameda.
   \newline
   \item FTX.US also temporarily froze withdrawls on Nov. 11, following the bankruptcy announcement, despite reassurances that FTX.US was not affected by FTX's liquidity troubles
-  \newline 
+  \newline
   \item FTX and FTX.US wallets were emptied on the evening of Nov. 11 in an apparent hack.
 \end{itemize}
 \end{frame}
@@ -429,7 +429,7 @@ Crypto in relation with the overall market
   \newline
   \item We have also learned about the
 distribution of these crypto-assets and discovered that, in many ways, they behave like equities
-  \newline 
+  \newline
   \item Future work could involve time-series analysis, focusing on modelling return dynamics and volatility
 \end{itemize}
 \end{frame}
@@ -593,7 +593,7 @@ distribution of these crypto-assets and discovered that, in many ways, they beha
 
 
 \begin{frame}{Analzing FOMC Documents}
-\footnotesize 
+\footnotesize
 
 \begin{table}[htbp]
 \centering
@@ -661,7 +661,7 @@ Chairperson Testimonies & 474   & Bi-annual presentation given before Congress.\
 \end{frame}
 
 \begin{frame}{Rate Predictions Using RAG}
- Queries used for sentiment analysis 
+ Queries used for sentiment analysis
   \vspace{0.4cm}
 \begin{itemize}
   \item  \textbf{Analysis Step:} "Provide a detailed summary of the following FOMC Documents from the date [date of the document]."
@@ -822,27 +822,27 @@ Rate prediction modeling pipeline
         >{\raggedright\arraybackslash}p{4cm}
         >{\raggedright\arraybackslash}p{4cm}}
         \toprule
-        Model Name  & Model Type                              & Strengths & Weaknesses \\ 
+        Model Name  & Model Type                              & Strengths & Weaknesses \\
         \midrule
         Cosine Similarity
         & \shortstack[l]{Traditional ML\\(Random Forest)}
         & \shortstack[l]{Interpretable features\\Computationally efficient}
-        & \shortstack[l]{Loss in individual word information\\Losses word order and context} \\ 
+        & \shortstack[l]{Loss in individual word information\\Losses word order and context} \\
         \midrule
         TF-IDF
         & \shortstack[l]{Traditional ML\\(Random Forest)}
         & \shortstack[l]{Simple \& interpretable\\Fast to train}
-        & \shortstack[l]{\\Hard to generalize}\\ 
+        & \shortstack[l]{\\Hard to generalize}\\
         \midrule
         LSTM
         & \shortstack[l]{Deep Learning\\(RNN)}
         & \shortstack[l]{Foundational for advanced models\\Fast to train}
-        & \shortstack[l]{Severe overfitting\\Embeddings can't learn from small data}\\ 
+        & \shortstack[l]{Severe overfitting\\Embeddings can't learn from small data}\\
         \midrule
         GloVe+LSTM
         & \shortstack[l]{Deep Learning\\(RNN)}
         & \shortstack[l]{Pre-trained embeddings \\reduces overfitting}
-        & \shortstack[l]{Fails to adapt to domain knowledge\\(Finance)}\\ 
+        & \shortstack[l]{Fails to adapt to domain knowledge\\(Finance)}\\
         \bottomrule
     \end{tabularx}
 
@@ -891,4 +891,141 @@ Rate prediction modeling pipeline
 	\vfill
 \end{frame}
 
+
+\begin{frame}
+	\centering
+	\vfill
+	{\Large \textbf{Appendix}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Appendix}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.70\linewidth]{pics/correlation_heatmap}
+	\caption{Correlation Matrix of the features in relation to the FOMC rate decision}
+	\label{fig:correlation_map}
+\end{figure}
+\end{frame}
+
+%%% -------------------------------------------------------
+
+\begin{frame}{Appendix}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{pics/text_analysis}
+  \caption{Documents processed based on split method and FOMC document type}
+  \label{fig:text_analysis}
+\end{figure}
+
+
+\end{frame}
+
+%%% -------------------------------------------------------
+
+\begin{frame}{Appendix}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{pics/statements_rates}
+\caption{FOMC rate decisions made after the most recent FOMC document publish}
+\label{fig:statements_rates}
+\end{figure}
+
+
+\end{frame}
+
+%%% -------------------------------------------------------
+
+\begin{frame}{Appendix}
+
+  \begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{pics/statements_rates}
+\caption{FOMC rate decisions made after the most recent FOMC document publish}
+\label{fig:statements_rates}
+\end{figure}
+
+\end{frame}
+
+%%% -------------------------------------------------------
+
+\begin{frame}{Appendix}
+
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=.8\linewidth]{pics/cosine_sentiment_map}
+  \caption{Rate decisions in relation to the Cosine Similarity features}
+\label{fig:correlation_cosine}
+\end{figure}
+
+
+\end{frame}
+
+%%% -------------------------------------------------------
+\begin{frame}{Appendix}
+
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=1\linewidth]{pics/confusion_matrix_cosine}
+\caption{Confusion Matrix of the Training and Testing data for the Cosine Similarity method}
+\label{fig:confusion_matrix_cosine}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Appendix}
+
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.9\linewidth]{pics/confusion_matrix_tfidf}
+\caption{Confusion Matrix of the Training and Testing data for the TF-IDF method}
+\label{fig:confusion_matrix_tfidf}
+\end{figure}
+
+\end{frame}
+
+%%% -------------------------------------------------------
+
+\begin{frame}{Appendix}
+
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.4\linewidth]{pics/confusion_matrix_lstm}
+\caption{Confusion Matrix of the LSTM method}
+\label{fig:confusion_matrix_lstm}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pics/confusion_matrix_glove_lstm_nosplit}
+        \caption{Model with small samples}
+        \label{fig:cm-small}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pics/confusion_matrix_glove_lstm}
+        \caption{Model with large samples}
+        \label{fig:cm-full}
+    \end{subfigure}
+    \caption{Confusion matrices for the GloVe-LSTM method}
+    \label{fig:confusion-matrices}
+\end{figure}
+
+
+\end{frame}
+
+%%% -------------------------------------------------------
+
 \end{document}
+
